@@ -23,8 +23,7 @@ pipeline {
 
 	stage('Test') {
 	    steps {
-		echo 'Running automated tests..'
-		sh 'echo "Running unit tests..." && echo "All tests passed"'
+		sh 'exit 1'
 	    }
 	}
 
