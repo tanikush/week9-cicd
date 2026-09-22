@@ -31,7 +31,7 @@ pipeline {
 	stage('Package') {
             steps {
 		echo 'Packing application..'
-		sh 'tar --exclude=.git -czf app-package.tar.gz .'
+		sh 'tar --exclude=.git --exclude=app-package.tar.gz -czf app-package.tar.gz .'
 	    }
 	}
 
@@ -59,7 +59,7 @@ pipeline {
 		sh '''
 		    docker stop week9-app-old || true
 		    docker rm week9-app-old || true
-		    docker run -d --name week9-app-new -p 8090:80 tanishakushwah/week9-app:v9
+		    docker run -d --name week9-app-new -p 8090:80 $IMAGE_NAME:$IMAGE_TAG
 		   '''
 	   }
 	}
