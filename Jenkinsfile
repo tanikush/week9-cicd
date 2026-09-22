@@ -59,7 +59,7 @@ pipeline {
 		sh '''
 		    docker stop week9-app-old || true
 		    docker rm week9-app-old || true
-		    docker run -d --name week9-app-new -p 8090:80 tanishakushwah/week9-app:v4
+		    docker run -d --name week9-app-new -p 8090:80 tanishakushwah/week9-app:v9
 		   '''
 	   }
 	}
